@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="contenedorPadre">
+    <div class="contenedorHijo">
+      <header>
+        <p>Generador de contraseñas</p>
+      </header>
+      <div class="boton-generador">
+        <input id="email" class="text" placeholder="Email"  [(ngModel)]="email">
+        <button class="button2" (click)="generador()">Generar</button>
+      </div>
+
+
+      <div class="contenedor-inputs">
+        <input class="input" name="firstName" type="text" [(ngModel)]="d1">
+        <input class="input" name="firstName" type="text" [(ngModel)]="d2">
+        <input class="input" name="firstName" type="text" [(ngModel)]="d3">
+        <input class="input" name="firstName" type="text" [(ngModel)]="d4" >
+      </div>
+
+      <div class="boton-comprobador">
+        <button class="button2" (click)="comparador()">Comprobar</button>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
