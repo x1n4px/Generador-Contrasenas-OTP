@@ -15,7 +15,7 @@
         <p>Generador de contraseñas</p>
       </header>
       <div class="boton-generador">
-        <input id="email" class="text" placeholder="Email"  [(ngModel)]="email">
+         <input id="email" class="text" placeholder="Email"  [(ngModel)]="email">
         <button class="button2" (click)="generador()">Generar</button>
       </div>
 
@@ -28,7 +28,7 @@
       </div>
 
       <div class="boton-comprobador">
-        <button class="button2" (click)="comparador()">Comprobar</button>
+        <button [ngClass]="{'button-animation': mostrarAnimacion}"  class="button2" (click)="comparador()">{{mostrarAnimacion ? 'Código Correcto':'Comprobar'}}</button>
       </div>
 
     </div>

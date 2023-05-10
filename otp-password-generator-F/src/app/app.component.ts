@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OTPServiceService } from './service/otpservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
+  constructor(private OTPService: OTPServiceService) {
 
   }
   email: string = '';
@@ -16,12 +17,21 @@ export class AppComponent {
   d2!: number;
   d3!: number;
   d4!: number;
+  mostrarAnimacion: boolean = false;
 
   generador() {
     this.codigo = this.generarClave();
-    console.log(this.email + ' ' + this.codigo);
-
-
+ 
+    
+    this.OTPService.changePassword(this.email, this.codigo).subscribe(
+      data =>{
+        console.log('Contraseña enviada correctamente');
+      },
+      (error) => {
+        console.log('No se ha podido enviar');
+      }
+    );
+    
   }
 
   generarClave(): string {
@@ -33,11 +43,12 @@ export class AppComponent {
 
   comparador() {
     let code = (this.d1.toString())+(this.d2.toString())+(this.d3.toString())+(this.d4.toString());
-    console.log(code);
     if(code === this.codigo){
       console.log('Codigo correcto!');
+      this.mostrarAnimacion = true;
     }else{
       console.log('Codigo incorrecto!');
+      this.mostrarAnimacion = false;
     }
    }
 
